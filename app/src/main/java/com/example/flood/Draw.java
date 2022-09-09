@@ -9,9 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class Draw extends View {
-    int n = 10;
-    int r;
-    int m;
+    /*int n = 10;
     int color;
     int[][] a = new int[n][n];
     int[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.WHITE, Color.BLACK, Color.GRAY,
@@ -22,15 +20,18 @@ public class Draw extends View {
                 a[i][j] = colors[(int) (Math.random() * colors.length)];
             }
         }
-    }
+    }*/
+    int r;
+    int m;
+    Game game;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
         int y = (int) event.getY();
         if (x > m / 4 && x < m / 4 + m / 2 && y > m / 4 && y < m / 4 + m / 2) {
-            color = a[(x - m / 4) / r][(y - m / 4) / r];
-
+            game.color = game.a[(x - m / 4) / r][(y - m / 4) / r];
+            game.move();
         }
         invalidate();
         return super.onTouchEvent(event);
@@ -38,7 +39,8 @@ public class Draw extends View {
 
     public Draw(Context context) {
         super(context);
-        newGame();
+        game = new Game();
+        game.newGame();
     }
     @Override
     protected void onDraw(Canvas canvas){
@@ -57,11 +59,11 @@ public class Draw extends View {
             r = x;
         }
         m = r;
-        r = r / 2 / n;
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
+        r = r / 2 / game.n;
+        for (int i = 0; i < game.n; i++){
+            for (int j = 0; j < game.n; j++){
                 paint.setStyle(Paint.Style.FILL);
-                paint.setColor(a[i][j]);
+                paint.setColor(game.a[i][j]);
                 int bottom = m / 4 + j * r + r;
                 int right = m / 4 + i * r + r;
                 canvas.drawRect((int)(m / 4) + i * r, (int)(m / 4) + j * r, right, bottom, paint);

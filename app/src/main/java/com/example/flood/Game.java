@@ -1,5 +1,43 @@
 package com.example.flood;
 
-public class Game {
+import android.graphics.Color;
 
+import java.util.ArrayList;
+
+public class Game {
+    int n = 10;
+    int color;
+    int moves = 0;
+    int[][] a = new int[n][n];
+    int[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.WHITE, Color.BLACK, Color.GRAY,
+            Color.YELLOW, Color.CYAN, Color.MAGENTA};
+    public void newGame(){
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                a[i][j] = colors[(int) (Math.random() * colors.length)];
+            }
+        }
+    }
+    public void colorer(int i, int j, int old_color){
+        a[i][j] = color;
+        if (i < n - 1 && a[i + 1][j] == old_color){
+            colorer(i + 1, j, old_color);
+        }
+        if (i > 0 && a[i - 1][j] == old_color){
+            colorer(i - 1, j, old_color);
+        }
+        if (j < n - 1 && a[i][j + 1] == old_color){
+            colorer(i, j + 1, old_color);
+        }
+        if (j > 0 && a[i][j - 1] == old_color){
+            colorer(i, j - 1, old_color);
+        }
+    }
+    public void move(){
+        moves = moves + 1;
+        colorer(0, 0, a[0][0]);
+    }
+    public Game(){
+        newGame();
+    }
 }
