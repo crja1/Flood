@@ -9,18 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class Draw extends View {
-    /*int n = 10;
-    int color;
-    int[][] a = new int[n][n];
-    int[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.WHITE, Color.BLACK, Color.GRAY,
-            Color.YELLOW, Color.CYAN, Color.MAGENTA};
-    public void newGame(){
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
-                a[i][j] = colors[(int) (Math.random() * colors.length)];
-            }
-        }
-    }*/
     int r;
     int m;
     Game game;
