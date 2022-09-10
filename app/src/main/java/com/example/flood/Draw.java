@@ -19,7 +19,9 @@ public class Draw extends View {
         int y = (int) event.getY();
         if (x > m / 4 && x < m / 4 + m / 2 && y > m / 4 && y < m / 4 + m / 2) {
             game.color = game.a[(x - m / 4) / r][(y - m / 4) / r];
-            game.move();
+            if (game.color != game.a[0][0]){
+                game.move();
+            }
         }
         invalidate();
         return super.onTouchEvent(event);
