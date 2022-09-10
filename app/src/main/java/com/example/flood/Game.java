@@ -5,16 +5,17 @@ import android.graphics.Color;
 import java.util.ArrayList;
 
 public class Game {
-    int n = 10;
+    static int n = 10;
     int color;
     int moves = 0;
     int[][] a = new int[n][n];
     int[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.WHITE, Color.BLACK, Color.GRAY,
             Color.YELLOW, Color.CYAN, Color.MAGENTA};
+    static int colorNumber = 9;
     public void newGame(){
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
-                a[i][j] = colors[(int) (Math.random() * colors.length)];
+                a[i][j] = colors[(int) (Math.random() * colorNumber)];
             }
         }
     }
