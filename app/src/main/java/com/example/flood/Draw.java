@@ -36,6 +36,7 @@ public class Draw extends View {
     protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
         Paint paint = new Paint();
+        paint.setTextSize(20);
         repaint(canvas, paint);
     }
     protected void repaint(Canvas canvas, Paint paint){
@@ -60,6 +61,7 @@ public class Draw extends View {
                 canvas.drawRect(i * r, j * r, i * r + r, j * r + r, paint);
             }
         }
-        canvas.drawText( game.moves + " из " + Game.moveNumber + " Ходов", 0, m, paint);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawText( game.moves + " из " + Game.moveNumber + " Ходов", 20, m + 20, paint);
     }
 }

@@ -14,30 +14,48 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
-    private static final String[] paths = {"item 1", "item 2", "item 3"};
+    private static final String[] colors = {"1 цвет", "2 цвета", "3 цвета", "4 цвета", "5 цветов", "6 цветов", "7 цветов", "8 цветов", "9 цветов"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SettingActivity.this,
-                android.R.layout.simple_spinner_item, paths);
+                android.R.layout.simple_spinner_item, colors);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-        Game.colorNumber = 3;
+
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
         switch (position) {
             case 0:
-                // Whatever you want to happen when the first item gets selected
+                Game.colorNumber = 1;
                 break;
             case 1:
-                // Whatever you want to happen when the second item gets selected
+                Game.colorNumber = 2;
                 break;
             case 2:
-                // Whatever you want to happen when the thyroid item gets selected
+                Game.colorNumber = 3;
+                break;
+            case 3:
+                Game.colorNumber = 4;
+                break;
+            case 4:
+                Game.colorNumber = 5;
+                break;
+            case 5:
+                Game.colorNumber = 6;
+                break;
+            case 6:
+                Game.colorNumber = 7;
+                break;
+            case 7:
+                Game.colorNumber = 8;
+                break;
+            case 8:
+                Game.colorNumber = 9;
                 break;
         }
     }
