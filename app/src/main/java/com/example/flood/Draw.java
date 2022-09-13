@@ -17,8 +17,8 @@ public class Draw extends View {
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
         int y = (int) event.getY();
-        if (x > m / 4 && x < m / 4 + m / 2 && y > m / 4 && y < m / 4 + m / 2) {
-            game.color = game.a[(x - m / 4) / r][(y - m / 4) / r];
+        if (x >= 0 && x < m && y >= 0 && y < m) {
+            game.color = game.a[x / r][y / r];
             if (game.color != game.a[0][0]){
                 game.move();
             }
@@ -49,18 +49,17 @@ public class Draw extends View {
             r = x;
         }
         m = r;
-        r = r / 2 / game.n;
+        r = r / game.n;
         for (int i = 0; i < game.n; i++){
             for (int j = 0; j < game.n; j++){
                 paint.setStyle(Paint.Style.FILL);
                 paint.setColor(game.a[i][j]);
-                int bottom = m / 4 + j * r + r;
-                int right = m / 4 + i * r + r;
-                canvas.drawRect((int)(m / 4) + i * r, (int)(m / 4) + j * r, right, bottom, paint);
+                canvas.drawRect(i * r, j * r, i * r + r, j * r + r, paint);
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setColor(Color.BLACK);
-                canvas.drawRect((int)(m / 4) + i * r, (int)(m / 4) + j * r, right, bottom, paint);
+                canvas.drawRect(i * r, j * r, i * r + r, j * r + r, paint);
             }
         }
+        canvas.drawText( game.moves + " из " + Game.moveNumber + " Ходов", 0, m, paint);
     }
 }

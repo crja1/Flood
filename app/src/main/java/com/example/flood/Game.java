@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Game {
     static int n = 10;
+    static int moveNumber = 1;
     int color;
     int moves = 0;
     int[][] a = new int[n][n];

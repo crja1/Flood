@@ -37,7 +37,7 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
                 // Whatever you want to happen when the second item gets selected
                 break;
             case 2:
-                // Whatever you want to happen when the thrid item gets selected
+                // Whatever you want to happen when the thyroid item gets selected
                 break;
         }
     }
