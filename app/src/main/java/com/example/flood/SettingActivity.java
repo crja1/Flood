@@ -1,6 +1,8 @@
 package com.example.flood;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,10 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
+    SharedPreferences prefs;
     private static final String[] colors = {"1 цвет", "2 цвета", "3 цвета", "4 цвета", "5 цветов", "6 цветов", "7 цветов", "8 цветов", "9 цветов"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefs = this.getSharedPreferences(
+                "com.example.app", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_setting);
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SettingActivity.this,
@@ -58,6 +63,9 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
                 Game.colorNumber = 9;
                 break;
         }
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("colors", Game.colorNumber);
+        editor.apply();
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
