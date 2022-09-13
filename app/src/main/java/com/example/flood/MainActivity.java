@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         Game.colorNumber = prefs.getInt("colors", 9);
         setContentView(R.layout.activity_main);
         final Button b1 = (Button)findViewById(R.id.button1);

@@ -21,8 +21,7 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prefs = this.getSharedPreferences(
-                "com.example.app", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_setting);
         spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(SettingActivity.this,
