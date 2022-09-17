@@ -35,7 +35,7 @@ public class Game {
         }
     }
     public void move(){
-        if (!is_win || moves == moveNumber) {
+        if (!is_win && moves < moveNumber) {
             moves = moves + 1;
             colorer(0, 0, a[0][0]);
             is_win = true;
