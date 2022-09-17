@@ -4,7 +4,8 @@ import android.graphics.Color;
 
 public class Game {
     static int n = 10;
-    static int moveNumber = 1;
+    static int moveNumber = 16;
+    boolean is_win = false;
     int color;
     int moves = 0;
     int[][] a = new int[n][n];
@@ -34,8 +35,18 @@ public class Game {
         }
     }
     public void move(){
-        moves = moves + 1;
-        colorer(0, 0, a[0][0]);
+        if (!is_win || moves == moveNumber) {
+            moves = moves + 1;
+            colorer(0, 0, a[0][0]);
+            is_win = true;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (a[i][j] != color) {
+                        is_win = false;
+                    }
+                }
+            }
+        }
     }
     public Game(){
         newGame();

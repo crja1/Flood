@@ -62,6 +62,12 @@ public class Draw extends View {
             }
         }
         paint.setStyle(Paint.Style.FILL);
+        if (game.is_win){
+            canvas.drawText("", 20, m + 20, paint);
+        }
+        if (game.moves == Game.moveNumber){
+            canvas.drawText("", 20, m + 20, paint);
+        }
         canvas.drawText( game.moves + " из " + Game.moveNumber + " Ходов", 20, m + 20, paint);
     }
 }
