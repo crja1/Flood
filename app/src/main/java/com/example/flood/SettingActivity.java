@@ -29,7 +29,6 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {

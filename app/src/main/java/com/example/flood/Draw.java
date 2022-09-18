@@ -23,10 +23,6 @@ public class Draw extends View {
                 game.move();
             }
         }
-        if (x >= 20 && x <= 160 && y >= m + 20 && y <= m + 80) {
-            game = new Game();
-            game.newGame();
-        }
         invalidate();
         return super.onTouchEvent(event);
     }
@@ -66,20 +62,17 @@ public class Draw extends View {
             }
         }
         paint.setStyle(Paint.Style.FILL);
+        paint.setTextSize(100);
         if (game.is_win){
-            canvas.drawText("Закончено!", 20, m + 20, paint);
+            canvas.drawText("Закончено!", 20, m + 100, paint);
         }
         else {
             if (game.moves == Game.moveNumber) {
-                canvas.drawText("Провалился!", 20, m + 20, paint);
+                canvas.drawText("Провалился!", 20, m + 100, paint);
             }
             else {
-                canvas.drawText(game.moves + " из " + Game.moveNumber + " Ходов", 20, m + 20, paint);
+                canvas.drawText(game.moves + " из " + Game.moveNumber + " Ходов", 20, m + 100, paint);
             }
         }
-        paint.setColor(Color.GRAY);
-        canvas.drawRect(20, m + 20, 160, m + 80, paint);
-        paint.setColor(Color.BLACK);
-        canvas.drawText("Новая игра.", 20, m + 40, paint);
     }
 }
