@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         Game.colorNumber = prefs.getInt("colors", 9);
+        Game.moveNumber = prefs.getInt("moves", 16);
+        Game.n = prefs.getInt("ns", 6);
         setContentView(R.layout.activity_main);
         final Button b1 = (Button)findViewById(R.id.button1);
         b1.setOnClickListener( new View.OnClickListener() {

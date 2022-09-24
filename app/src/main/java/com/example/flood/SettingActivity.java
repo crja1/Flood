@@ -15,55 +15,75 @@ import com.example.flood.Game;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner spinner;
+    Spinner spinner1;
+    Spinner spinner2;
+    Spinner spinner3;
     SharedPreferences prefs;
-    private static final String[] colors = {"1 цвет", "2 цвета", "3 цвета", "4 цвета", "5 цветов", "6 цветов", "7 цветов", "8 цветов", "9 цветов"};
+    private static final String[] colors = {"3 цвета", "4 цвета", "5 цветов", "6 цветов", "7 цветов", "8 цветов", "9 цветов"};
+    private static final String[] moves = {""};
+    private static final String[] ns = {""};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_setting);
-        spinner = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SettingActivity.this,
+        spinner1 = (Spinner)findViewById(R.id.spinner1);
+        spinner2 = (Spinner)findViewById(R.id.spinner2);
+        spinner3 = (Spinner)findViewById(R.id.spinner3);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(SettingActivity.this,
                 android.R.layout.simple_spinner_item, colors);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(SettingActivity.this,
+                android.R.layout.simple_spinner_item, moves);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(SettingActivity.this,
+                android.R.layout.simple_spinner_item, ns);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
+        spinner2.setAdapter(adapter2);
+        spinner3.setAdapter(adapter3);
+        spinner1.setOnItemSelectedListener(this);
+        spinner2.setOnItemSelectedListener(this);
+        spinner3.setOnItemSelectedListener(this);
+        spinner1.post(new Runnable() {
+            @Override
+            public void run() {
+                spinner1.setSelection(Game.colorNumber - 3);
+            }
+        });
+        spinner2.post(new Runnable() {
+            @Override
+            public void run() {
+                spinner2.setSelection(Game.moveNumber - 1);
+            }
+        });
+        spinner3.post(new Runnable() {
+            @Override
+            public void run() {
+                spinner3.setSelection(Game.n - 1);
+            }
+        });
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        switch (position) {
-            case 0:
-                Game.colorNumber = 1;
-                break;
-            case 1:
-                Game.colorNumber = 2;
-                break;
-            case 2:
-                Game.colorNumber = 3;
-                break;
-            case 3:
-                Game.colorNumber = 4;
-                break;
-            case 4:
-                Game.colorNumber = 5;
-                break;
-            case 5:
-                Game.colorNumber = 6;
-                break;
-            case 6:
-                Game.colorNumber = 7;
-                break;
-            case 7:
-                Game.colorNumber = 8;
-                break;
-            case 8:
-                Game.colorNumber = 9;
-                break;
+        if (parent == spinner1) {
+            Game.colorNumber = position + 3;
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("colors", Game.colorNumber);
+            editor.apply();
         }
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("colors", Game.colorNumber);
-        editor.apply();
+        if (parent == spinner2) {
+            Game.moveNumber = position + 1;
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("moves", Game.moveNumber);
+            editor.apply();
+        }
+        if (parent == spinner3) {
+            Game.n = position + 1;
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("ns", Game.n);
+            editor.apply();
+        }
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

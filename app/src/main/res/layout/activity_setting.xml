@@ -10,8 +10,34 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Количество цветов."
+            android:textSize="24sp" />
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Количество ходов."
+            android:textSize="24sp" />
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ширина или высота поля в клетках."
+            android:textSize="24sp" />
+        <Spinner
+            android:id="@+id/spinner3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
