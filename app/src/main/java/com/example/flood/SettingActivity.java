@@ -19,13 +19,15 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
     Spinner spinner2;
     Spinner spinner3;
     SharedPreferences prefs;
-    private static final String[] colors = {"3 цвета", "4 цвета", "5 цветов", "6 цветов", "7 цветов", "8 цветов", "9 цветов"};
-    private static final String[] moves = {""};
-    private static final String[] ns = {""};
+    private static final String[] colors = {"3", "4", "5", "6", "7", "8", "9"};
+    private static final String[] moves = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+    private static final String[] ns = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         prefs = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("moves", Context.MODE_PRIVATE);
+        prefs = getSharedPreferences("ns", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_setting);
         spinner1 = (Spinner)findViewById(R.id.spinner1);
         spinner2 = (Spinner)findViewById(R.id.spinner2);
