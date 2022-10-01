@@ -49,8 +49,8 @@ public class Draw extends View {
         else {
             r = x;
         }
-        m = r;
-        r = r / game.n;
+        m = r - 110;
+        r = m / game.n;
         for (int i = 0; i < game.n; i++){
             for (int j = 0; j < game.n; j++){
                 paint.setStyle(Paint.Style.FILL);

@@ -18,7 +18,7 @@
             android:textSize="24sp" />
         <Spinner
             android:id="@+id/spinner1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textView2"
@@ -28,7 +28,7 @@
             android:textSize="24sp" />
         <Spinner
             android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textView3"
@@ -38,7 +38,7 @@
             android:textSize="24sp" />
         <Spinner
             android:id="@+id/spinner3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

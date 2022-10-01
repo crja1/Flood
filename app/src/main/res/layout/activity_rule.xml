@@ -14,16 +14,18 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Наводнение."
-            android:textSize="34sp" />
+            android:textSize="48sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Цель игры: закрасить поле за определённое количество ходов. Если нажать на клетку, то верхняя левая смежная область цвета верхней левой клетки закрасится в её цвет. Это действие является ходом."
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="  Цель игры: закрасить поле за определённое количество ходов. Если нажать на клетку, то верхняя левая смежная область цвета верхней левой клетки закрасится в её цвет. Это действие является ходом."
             android:textSize="34sp" />
 
     </LinearLayout>
