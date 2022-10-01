@@ -62,7 +62,7 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
         spinner3.post(new Runnable() {
             @Override
             public void run() {
-                spinner3.setSelection(Game.n - 1);
+                spinner3.setSelection(Game.n - 2);
             }
         });
     }
@@ -81,7 +81,7 @@ public class SettingActivity extends AppCompatActivity implements AdapterView.On
             editor.apply();
         }
         if (parent == spinner3) {
-            Game.n = position + 1;
+            Game.n = position + 2;
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("ns", Game.n);
             editor.apply();
